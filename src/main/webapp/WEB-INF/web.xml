@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+    <!--start  operation admin : add delete update of formateur -->
+    <!--  add  -->
+    <servlet>
+        <servlet-name>add_formateur</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add_formateur</servlet-name>
+        <url-pattern>/add_formateur</url-pattern>
+    </servlet-mapping>
+                                <!-- update -->
+    <servlet>
+        <servlet-name>edit_formateur</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit_formateur</servlet-name>
+        <url-pattern>/edit_formateur</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <servlet-name>delete_formateur</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete_formateur</servlet-name>
+        <url-pattern>/delete_formateur</url-pattern>
+    </servlet-mapping>
+    <!--end  operation admin : add delete update of formateur -->
+
+    <!--start  operation admin : add delete update of apprenant -->
+    <!--  add  -->
+    <servlet>
+        <servlet-name>add_apprenante</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add_apprenante</servlet-name>
+        <url-pattern>/add_apprenante</url-pattern>
+    </servlet-mapping>
+    <!-- update -->
+    <servlet>
+        <servlet-name>edit_apprenante</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit_apprenante</servlet-name>
+        <url-pattern>/edit_apprenante</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <servlet-name>delete_apprenante</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete_apprenante</servlet-name>
+        <url-pattern>/delete_apprenante</url-pattern>
+    </servlet-mapping>
+    <!--end  operation admin : add delete update of apprenant -->
+    <!--start  operation admin : add delete update of promotion -->
+    <!--  add  -->
+    <servlet>
+        <servlet-name>add_promotion</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add_promotion</servlet-name>
+        <url-pattern>/add_promotion</url-pattern>
+    </servlet-mapping>
+    <!-- update -->
+    <servlet>
+        <servlet-name>edit_promotion</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>edit_promotion</servlet-name>
+        <url-pattern>/edit_promotion</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <servlet-name>delete_promotion</servlet-name>
+        <servlet-class>MVC.Controller.AdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete_promotion</servlet-name>
+        <url-pattern>/delete_promotion</url-pattern>
+    </servlet-mapping>
+    <!--end  operation admin : add delete update of promotion -->
+
+</web-app>
