@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="MVC.Model.Classroom">
+        <table name="classroom" schema="simplone" catalog=""/>
+        <attributes>
+            <id name="idClassroom">
+                <column name="id_classroom" precision="11"/>
+            </id>
+            <basic name="nomClassroom">
+                <column name="nom_classroom"/>
+            </basic>
+            <basic name="idPromo">
+                <column name="id_promo" precision="11"/>
+            </basic>
+            <basic name="idFormateur">
+                <column name="id_formateur" precision="11"/>
+            </basic>
+            <basic name="idApprenante">
+                <column name="id_apprenante" precision="11"/>
+            </basic>
+            <one-to-many name="briefsByIdClassroom" mapped-by="classroomByIdClassroom" target-entity="MVC.Model.Brief"/>
+        </attributes>
+    </entity>
+</entity-mappings>

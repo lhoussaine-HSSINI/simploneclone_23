@@ -23,8 +23,6 @@ public class Formateur {
     @Column(name = "password")
     private String password;
     @OneToMany(mappedBy = "formateurByIdFormateur")
-    private Collection<Brief> briefsByIdFormateur;
-    @OneToMany(mappedBy = "formateurByIdFormateur")
     private Collection<Classroom> classroomsByIdFormateur;
     public Formateur(){
 
@@ -109,14 +107,6 @@ public class Formateur {
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
-    }
-
-    public Collection<Brief> getBriefsByIdFormateur() {
-        return briefsByIdFormateur;
-    }
-
-    public void setBriefsByIdFormateur(Collection<Brief> briefsByIdFormateur) {
-        this.briefsByIdFormateur = briefsByIdFormateur;
     }
 
     public Collection<Classroom> getClassroomsByIdFormateur() {

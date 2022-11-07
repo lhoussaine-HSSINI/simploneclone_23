@@ -92,4 +92,56 @@
     </servlet-mapping>
     <!--end  operation admin : add delete update of promotion -->
 
+
+    <!--start  operation formatuer  : add delete update  -->
+
+
+
+    <!-- add brief -->
+    <servlet>
+        <servlet-name>Homeffff</servlet-name>
+        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Homeffff</servlet-name>
+        <url-pattern>/Homef</url-pattern>
+    </servlet-mapping>
+    <!--  add apprenante to ma class  -->
+    <servlet>
+        <servlet-name>add_apprenante_maclass</servlet-name>
+        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>add_apprenante_maclass</servlet-name>
+        <url-pattern>/add_apprenante_ma_class</url-pattern>
+    </servlet-mapping>
+    <!-- add brief -->
+    <servlet>
+        <servlet-name>addbrief</servlet-name>
+        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addbrief</servlet-name>
+        <url-pattern>/add_brief</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <servlet-name>update_brief</servlet-name>
+        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>update_brief</servlet-name>
+        <url-pattern>/update_brief</url-pattern>
+    </servlet-mapping>
+    <!-- delete -->
+    <servlet>
+        <servlet-name>delete_brief</servlet-name>
+        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete_brief</servlet-name>
+        <url-pattern>/delete_brief</url-pattern>
+    </servlet-mapping>
+    <!--end  operation admin : add delete update of promotion -->
+
 </web-app>

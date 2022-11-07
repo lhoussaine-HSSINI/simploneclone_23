@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="MVC.Model.Brief">
+        <table name="brief" schema="simplone" catalog=""/>
+        <attributes>
+            <id name="idBrief">
+                <column name="id_brief" precision="11"/>
+            </id>
+            <basic name="titleBrief">
+                <column name="title_brief"/>
+            </basic>
+            <basic name="descriptionBrief">
+                <column name="description_brief"/>
+            </basic>
+            <basic name="deadlineBrief">
+                <column name="deadline_brief" precision="11"/>
+            </basic>
+            <basic name="idClassroom">
+                <column name="id_classroom" precision="11"/>
+            </basic>
+            <many-to-one name="classroomByIdClassroom" optional="true" target-entity="MVC.Model.Classroom">
+                <join-column name="id_classroom" referenced-column-name="id_classroom"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -6,29 +6,22 @@ import jakarta.persistence.*;
 public class Brief {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id_brief")
+    @Column(name = "id_brief", nullable = false)
     private int idBrief;
     @Basic
-    @Column(name = "title_brief")
+    @Column(name = "title_brief", nullable = false, length = 255)
     private String titleBrief;
     @Basic
-    @Column(name = "description_brief")
+    @Column(name = "description_brief", nullable = false, length = -1)
     private String descriptionBrief;
     @Basic
-    @Column(name = "deadline_brief")
+    @Column(name = "deadline_brief", nullable = false)
     private int deadlineBrief;
-//    @Basic
-//    @Column(name = "id_classroom")
-//    private int idClassroom;
-//    @Basic
-//    @Column(name = "id_formateur")
-//    private int idFormateur;
+
     @ManyToOne
-    @JoinColumn(name = "id_classroom", referencedColumnName = "id_classroom", nullable = false)
+    @JoinColumn(name = "id_classroom", referencedColumnName = "id_classroom", nullable = false ,insertable = false, updatable = false)
     private Classroom classroomByIdClassroom;
-    @ManyToOne
-    @JoinColumn(name = "id_formateur", referencedColumnName = "id_formateur", nullable = false)
-    private Formateur formateurByIdFormateur;
+
 
     public int getIdBrief() {
         return idBrief;
@@ -62,51 +55,6 @@ public class Brief {
         this.deadlineBrief = deadlineBrief;
     }
 
-//    public int getIdClassroom() {
-//        return idClassroom;
-//    }
-//
-//    public void setIdClassroom(int idClassroom) {
-//        this.idClassroom = idClassroom;
-//    }
-//
-//    public int getIdFormateur() {
-//        return idFormateur;
-//    }
-//
-//    public void setIdFormateur(int idFormateur) {
-//        this.idFormateur = idFormateur;
-//    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Brief brief = (Brief) o;
-
-        if (idBrief != brief.idBrief) return false;
-        if (deadlineBrief != brief.deadlineBrief) return false;
-//        if (idClassroom != brief.idClassroom) return false;
-//        if (idFormateur != brief.idFormateur) return false;
-        if (titleBrief != null ? !titleBrief.equals(brief.titleBrief) : brief.titleBrief != null) return false;
-        if (descriptionBrief != null ? !descriptionBrief.equals(brief.descriptionBrief) : brief.descriptionBrief != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = idBrief;
-        result = 31 * result + (titleBrief != null ? titleBrief.hashCode() : 0);
-        result = 31 * result + (descriptionBrief != null ? descriptionBrief.hashCode() : 0);
-        result = 31 * result + deadlineBrief;
-//        result = 31 * result + idClassroom;
-//        result = 31 * result + idFormateur;
-        return result;
-    }
-
     public Classroom getClassroomByIdClassroom() {
         return classroomByIdClassroom;
     }
@@ -115,11 +63,21 @@ public class Brief {
         this.classroomByIdClassroom = classroomByIdClassroom;
     }
 
-    public Formateur getFormateurByIdFormateur() {
-        return formateurByIdFormateur;
+    public Brief(int idBrief, String titleBrief, String descriptionBrief, int deadlineBrief, Classroom classroomByIdClassroom) {
+        this.idBrief = idBrief;
+        this.titleBrief = titleBrief;
+        this.descriptionBrief = descriptionBrief;
+        this.deadlineBrief = deadlineBrief;
+        this.classroomByIdClassroom = classroomByIdClassroom;
     }
 
-    public void setFormateurByIdFormateur(Formateur formateurByIdFormateur) {
-        this.formateurByIdFormateur = formateurByIdFormateur;
+    public Brief(String titleBrief, String descriptionBrief, int deadlineBrief, Classroom classroomByIdClassroom) {
+        this.titleBrief = titleBrief;
+        this.descriptionBrief = descriptionBrief;
+        this.deadlineBrief = deadlineBrief;
+        this.classroomByIdClassroom = classroomByIdClassroom;
+    }
+
+    public Brief() {
     }
 }
