@@ -21,7 +21,6 @@ public class FormateurServlet extends HttpServlet {
     private Formateur formateur;
     private Promotion promotion;
     private Classroom classroom;
-    private Brief brief;
 
 
     @Override
@@ -52,7 +51,7 @@ public class FormateurServlet extends HttpServlet {
                 classroom = new Classroom(classe,promotion, formateur, apprenante);
                 classroom.setNomClassroom(classe);
                 classroom.setPromotionByIdPromo(promotion);
-                classroom.getFormateurByIdFormateur(formateur);
+                classroom.setFormateurByIdFormateur(formateur);
                 classroom.setApprenanteByIdApprenante(apprenante);
                 formateurDao.addclass(classroom);
                 break;
@@ -64,21 +63,18 @@ public class FormateurServlet extends HttpServlet {
                 formateurDao formateur_op=new formateurDao();
                 Promotion    p = formateur_op.getpromo(2);
                 Formateur    f = formateur_op.getformateur(1);
-                System.out.println(p.getIdPromo());
-                System.out.println(f.getIdFormateur());
                 List<Classroom> ma_class =  formateur_op.get_ma_class(p,f);
                 Classroom classroom1  = new Classroom();
                 for(Classroom c: ma_class){
-                    System.out.println(c);
                     classroom1 =c;
                     break;
                 }
 
-                brief = new Brief(titleBrief, descriptionBrief, deadlineBrief, classroom1);
+                Brief brief = new Brief(titleBrief, descriptionBrief, deadlineBrief, classroom1);
                 brief.setTitleBrief(titleBrief);
                 brief.setDescriptionBrief(descriptionBrief);
                 brief.setDeadlineBrief(deadlineBrief);
-                brief.setClassroomByIdClassroom(classroom1);
+                brief.setIdClassroom(classroom1.getIdClassroom());
                 formateur_op.addbrief(brief);
                 break;
             case "update_brief":

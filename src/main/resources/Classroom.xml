@@ -20,6 +20,15 @@
             <basic name="idApprenante">
                 <column name="id_apprenante" precision="11"/>
             </basic>
+            <many-to-one name="promotionByIdPromo" optional="true" target-entity="MVC.Model.Promotion">
+                <join-column name="id_promo" referenced-column-name="id_promo"/>
+            </many-to-one>
+            <many-to-one name="formateurByIdFormateur" optional="true" target-entity="MVC.Model.Formateur">
+                <join-column name="id_formateur" referenced-column-name="id_formateur"/>
+            </many-to-one>
+            <many-to-one name="apprenanteByIdApprenante" optional="true" target-entity="MVC.Model.Apprenante">
+                <join-column name="id_apprenante" referenced-column-name="id_apprenante"/>
+            </many-to-one>
             <one-to-many name="briefsByIdClassroom" mapped-by="classroomByIdClassroom" target-entity="MVC.Model.Brief"/>
         </attributes>
     </entity>

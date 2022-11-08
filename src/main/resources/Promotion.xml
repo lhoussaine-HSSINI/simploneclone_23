@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="MVC.Model.Promotion">
+        <table name="promotion" schema="simplone" catalog=""/>
+        <attributes>
+            <id name="idPromo">
+                <column name="id_promo" precision="11"/>
+            </id>
+            <basic name="year">
+                <column name="year"/>
+            </basic>
+            <one-to-many name="classroomsByIdPromo" mapped-by="promotionByIdPromo" target-entity="MVC.Model.Classroom"/>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -7,8 +7,16 @@
 
         <mapping-file>Brief.xml</mapping-file>
         <mapping-file>Classroom.xml</mapping-file>
+        <mapping-file>Admin.xml</mapping-file>
+        <mapping-file>Apprenante.xml</mapping-file>
+        <mapping-file>Formateur.xml</mapping-file>
+        <mapping-file>Promotion.xml</mapping-file>
+        <class>MVC.Model.Admin</class>
+        <class>MVC.Model.Apprenante</class>
         <class>MVC.Model.Brief</class>
         <class>MVC.Model.Classroom</class>
+        <class>MVC.Model.Formateur</class>
+        <class>MVC.Model.Promotion</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/simplone"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>

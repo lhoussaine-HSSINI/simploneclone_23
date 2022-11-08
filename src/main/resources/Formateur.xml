@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="MVC.Model.Formateur">
+        <table name="formateur" schema="simplone" catalog=""/>
+        <attributes>
+            <id name="idFormateur">
+                <column name="id_formateur" precision="11"/>
+            </id>
+            <basic name="nom">
+                <column name="nom"/>
+            </basic>
+            <basic name="prenom">
+                <column name="prenom"/>
+            </basic>
+            <basic name="username">
+                <column name="username"/>
+            </basic>
+            <basic name="password">
+                <column name="password"/>
+            </basic>
+            <one-to-many name="classroomsByIdFormateur" mapped-by="formateurByIdFormateur"
+                         target-entity="MVC.Model.Classroom"/>
+        </attributes>
+    </entity>
+</entity-mappings>

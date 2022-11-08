@@ -28,6 +28,8 @@ public class formateurDao {
 //    add brief to class
     public void addbrief(Brief brief) {
         try  {
+
+            System.out.println(brief.getClassroomByIdClassroom().getIdClassroom());
             Session session = SessionUtil.getCurrentSession();
             session.getTransaction();
             session.getTransaction().begin();

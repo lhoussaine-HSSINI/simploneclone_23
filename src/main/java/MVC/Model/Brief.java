@@ -17,11 +17,12 @@ public class Brief {
     @Basic
     @Column(name = "deadline_brief", nullable = false)
     private int deadlineBrief;
-
+    @Basic
+    @Column(name = "id_classroom", nullable = false)
+    private int idClassroom;
     @ManyToOne
     @JoinColumn(name = "id_classroom", referencedColumnName = "id_classroom", nullable = false ,insertable = false, updatable = false)
     private Classroom classroomByIdClassroom;
-
 
     public int getIdBrief() {
         return idBrief;
@@ -55,6 +56,14 @@ public class Brief {
         this.deadlineBrief = deadlineBrief;
     }
 
+    public int getIdClassroom() {
+        return idClassroom;
+    }
+
+    public void setIdClassroom(int idClassroom) {
+        this.idClassroom = idClassroom;
+    }
+
     public Classroom getClassroomByIdClassroom() {
         return classroomByIdClassroom;
     }
@@ -63,13 +72,6 @@ public class Brief {
         this.classroomByIdClassroom = classroomByIdClassroom;
     }
 
-    public Brief(int idBrief, String titleBrief, String descriptionBrief, int deadlineBrief, Classroom classroomByIdClassroom) {
-        this.idBrief = idBrief;
-        this.titleBrief = titleBrief;
-        this.descriptionBrief = descriptionBrief;
-        this.deadlineBrief = deadlineBrief;
-        this.classroomByIdClassroom = classroomByIdClassroom;
-    }
 
     public Brief(String titleBrief, String descriptionBrief, int deadlineBrief, Classroom classroomByIdClassroom) {
         this.titleBrief = titleBrief;
