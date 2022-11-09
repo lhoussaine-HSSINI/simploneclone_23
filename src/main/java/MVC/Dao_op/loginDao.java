@@ -1,5 +1,6 @@
 package MVC.Dao_op;
 import MVC.Model.Admin;
+import MVC.Model.Apprenante;
 import MVC.Model.Formateur;
 import org.hibernate.Session;
 
@@ -11,8 +12,6 @@ public class loginDao {
             session.getTransaction();
             session.getTransaction().begin();
             admin = (Admin) session.createQuery("SELECT U FROM Admin U WHERE U.username = :username ").setParameter("username", username).uniqueResult();
-            System.out.println(admin.getUsername());
-            System.out.println(admin.getPassword());
             if (admin != null && admin.getPassword().equals(password)) {
                 return true;
             }
@@ -20,8 +19,7 @@ public class loginDao {
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("error");
+            System.out.println("error admin");
         }
         return false;
     }
@@ -32,8 +30,6 @@ public class loginDao {
             session.getTransaction();
             session.getTransaction().begin();
             formateur = (Formateur) session.createQuery("SELECT U FROM Formateur U WHERE U.username = :username ").setParameter("username", username).uniqueResult();
-            System.out.println(formateur.getUsername());
-            System.out.println(formateur.getPassword());
             if (formateur != null && formateur.getPassword().equals(password)) {
                 return true;
             }
@@ -41,8 +37,31 @@ public class loginDao {
             session.getTransaction().commit();
             session.close();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("error");
+            System.out.println("error formateur ");
+        }
+        return false;
+    }
+
+
+
+    public Boolean inserapprenante(String username, String password) {
+        Apprenante apprenante = null;
+        try {
+            Session session = SessionUtil.getCurrentSession();
+            session.getTransaction();
+            session.getTransaction().begin();
+            apprenante = (Apprenante) session.createQuery("SELECT U  FROM Apprenante U WHERE U.username = :username").setParameter("username", username).uniqueResult();
+            System.out.println(apprenante.getUsername());
+            System.out.println(apprenante.getPassword());
+            System.out.println(apprenante.getClassroomsByIdApprenante());
+            if (apprenante.getPassword().equals(password)) {
+                return true;
+            }
+            session.persist(apprenante);
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            System.out.println("error apprenante");
         }
         return false;
     }

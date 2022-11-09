@@ -1,6 +1,5 @@
 package MVC.Controller;
 
-import MVC.Dao_op.adminDao;
 import MVC.Dao_op.formateurDao;
 import MVC.Model.*;
 import jakarta.servlet.*;
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "FormateurServlet", value = "/FormateurServlet")
-public class FormateurServlet extends HttpServlet {
+public class FormateurController extends HttpServlet {
 
     private String classe, titleBrief, descriptionBrief;
     private  formateurDao formateurDao;
@@ -90,6 +89,5 @@ public class FormateurServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("Homef.jsp");
         dispatcher.forward(request, response);
-
     }
 }

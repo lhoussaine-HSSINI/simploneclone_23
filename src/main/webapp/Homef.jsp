@@ -1,13 +1,10 @@
 <%@ page import="MVC.Dao_op.adminDao" %>
-<%@ page import="MVC.Model.Apprenante" %>
 <%@ page import="java.util.List" %>
-<%@ page import="MVC.Model.Promotion" %>
 <%@ page import="MVC.Dao_op.formateurDao" %>
-<%@ page import="MVC.Model.Formateur" %>
-<%@ page import="MVC.Model.Classroom" %>
 <%@ page import="java.util.Collections" %>
 <%@ page import="static MVC.Dao_op.formateurDao.getAllclass" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="MVC.Model.*" %><%--
   Created by IntelliJ IDEA.
   User: fahof
   Date: 11/2/2022
@@ -110,8 +107,52 @@
 <form action="add_brief" method="post">
     <input class="form-control" type="text" name="titleBrief" placeholder="titleBrief"/>
     <textarea class="form-control"  name="descriptionBrief">  description Brief ...</textarea>
-    <input class="form-control" type="number" name="deadlineBrief" placeholder="deadlineBrief"/>
+    <input class="form-control" type="number" name="deadlineBrief"/>
     <input class="form-control btn btn-primary" type="submit" value="add brief">
 </form>
+
+
+<h2>list of briefat dyal ma class </h2>
+
+<table class="table">
+    <thead>
+    <th scope="col">N°</th>
+    <th scope="col">title</th>
+    <th scope="col">description</th>
+    <th scope="col">deadline</th>
+    <th scope="col">id class</th>
+    <th scope="col">class</th>
+    <th scope="col">promotion</th>
+    <th scope="col">formateur</th>
+    </thead>
+    <tbody>
+    <%
+        int j = 1;
+        formateurDao formateurDao_1=new formateurDao();
+//        List<Formateur> formateurs = Collections.singletonList(formateurDao.getformateur(1));
+        Promotion promotion_1= formateurDao_1.getpromo(2);
+        Formateur formateur_1=formateurDao_1.getformateur(1);
+        List<Brief> list_ma_briefat = formateurDao_1.getall_ma_brief(promotion_1, formateur_1);
+//        for(Formateur f: formateurs){
+//            for(Classroom classroom: f.getClassroomsByIdFormateur()){
+            for(Brief brief: list_ma_briefat){
+    %>
+    <tr>
+        <th scope="col"><%=j %></th>
+        <td><%=brief.getTitleBrief()%></td>
+        <td><%=brief.getDescriptionBrief()%></td>
+        <td><%=brief.getDeadlineBrief()%></td>
+        <td><%=brief.getClassroomByIdClassroom().getIdClassroom()%></td>
+        <td><%=brief.getClassroomByIdClassroom().getNomClassroom()%></td>
+        <td><%=brief.getClassroomByIdClassroom().getPromotionByIdPromo().getYear()%></td>
+        <td><%=brief.getClassroomByIdClassroom().getFormateurByIdFormateur().getNom()+" "+brief.getClassroomByIdClassroom().getFormateurByIdFormateur().getPrenom()%></td>
+    </tr>
+    <%
+            j++;
+   }%>
+    </tbody>
+</table>
+
+
 </body>
 </html>

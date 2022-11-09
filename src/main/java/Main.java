@@ -1,23 +1,17 @@
 import MVC.Dao_op.SessionUtil;
-import MVC.Dao_op.adminDao;
+import MVC.Dao_op.apprenanteDao;
 import MVC.Dao_op.formateurDao;
 import MVC.Model.Apprenante;
 import MVC.Model.Classroom;
 import MVC.Model.Formateur;
 import MVC.Model.Promotion;
 import org.hibernate.HibernateException;
-import org.hibernate.Metamodel;
-import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 //import javax.persistence.metamodel.EntityType;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Main {
@@ -74,18 +68,16 @@ public class Main {
 
     public static void main(final String[] args) throws Exception {
         final Session session = getSession();
-        formateurDao formateurDao=new formateurDao();
-        Promotion    p = formateurDao.getpromo(2);
-        Formateur    f = formateurDao.getformateur(1);
-        System.out.println(p.getIdPromo());
-        System.out.println(f.getIdFormateur());
-        List<Classroom> ma_class =  formateurDao.get_ma_class(p,f);
-        Classroom aa  = new Classroom();
-        for(Classroom c: ma_class){
-            System.out.println(c);
-            aa =c;
-            break;
-        }
 
+
+        formateurDao formateurDao=new formateurDao();
+        apprenanteDao apprenanteDao=new apprenanteDao();
+//        Promotion promotion= formateurDao.getpromo(2);
+//        Formateur formateur=formateurDao.getformateur(1);
+        Apprenante apprenante =formateurDao.getapp(2);
+//        List<Classroom> list_ma_class = apprenanteDao.get_ma_class(apprenante);
+        Classroom c = apprenanteDao.get_ma_class(apprenante);
+
+        System.out.println("promotion :  "+c.getPromotionByIdPromo().getYear()+" || class : "+c.getNomClassroom());
     }
 }

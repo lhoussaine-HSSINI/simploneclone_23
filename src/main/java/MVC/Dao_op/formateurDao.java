@@ -140,7 +140,23 @@ public class formateurDao {
         return listOfUser_apprenanate;
     }
 
-
+    public static List<Brief> getall_ma_brief(Promotion promotionByIdPromo, Formateur formateurByIdFormateur) {
+        List< Brief > listOf_briefat = null;
+        try {
+            Session session = SessionUtil.getCurrentSession();
+            session.getTransaction();
+            session.getTransaction().begin();
+            // get an user object
+            listOf_briefat = session.createQuery("select U from Brief U where U.classroomByIdClassroom.promotionByIdPromo=:promotionByIdPromo and U.classroomByIdClassroom.formateurByIdFormateur=:formateurByIdFormateur").setParameter("promotionByIdPromo",promotionByIdPromo).setParameter("formateurByIdFormateur",formateurByIdFormateur).getResultList();
+            // commit transaction
+            session.getTransaction().commit();
+            session.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        return listOf_briefat;
+    }
 
 
 

@@ -100,7 +100,7 @@
     <!-- add brief -->
     <servlet>
         <servlet-name>Homeffff</servlet-name>
-        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+        <servlet-class>MVC.Controller.FormateurController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Homeffff</servlet-name>
@@ -109,7 +109,7 @@
     <!--  add apprenante to ma class  -->
     <servlet>
         <servlet-name>add_apprenante_maclass</servlet-name>
-        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+        <servlet-class>MVC.Controller.FormateurController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>add_apprenante_maclass</servlet-name>
@@ -118,7 +118,7 @@
     <!-- add brief -->
     <servlet>
         <servlet-name>addbrief</servlet-name>
-        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+        <servlet-class>MVC.Controller.FormateurController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addbrief</servlet-name>
@@ -127,7 +127,7 @@
     <!-- delete -->
     <servlet>
         <servlet-name>update_brief</servlet-name>
-        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+        <servlet-class>MVC.Controller.FormateurController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>update_brief</servlet-name>
@@ -136,7 +136,7 @@
     <!-- delete -->
     <servlet>
         <servlet-name>delete_brief</servlet-name>
-        <servlet-class>MVC.Controller.FormateurServlet</servlet-class>
+        <servlet-class>MVC.Controller.FormateurController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>delete_brief</servlet-name>

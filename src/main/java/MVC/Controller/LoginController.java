@@ -19,18 +19,19 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        System.out.println(username +" "+password);
         loginDao  loginDao=new loginDao();
         if(loginDao.insertAdmin(username,password))
         {
-            System.out.println("mzyan alhousin");
             RequestDispatcher dispatcher = request.getRequestDispatcher("Dashboarda.jsp");
             dispatcher.forward(request, response);
         } else if (loginDao.inserformateur(username,password)) {
-            System.out.println("mzyan alhousin");
             RequestDispatcher dispatcher = request.getRequestDispatcher("Homef.jsp");
             dispatcher.forward(request, response);
-
-        } else {
+        } else if (loginDao.inserapprenante(username,password)) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Homea.jsp");
+            dispatcher.forward(request, response);
+        }else {
             System.out.println("nnnn alhousin");
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
